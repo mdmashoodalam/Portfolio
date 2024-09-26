@@ -15,7 +15,7 @@
 
 ![](./public/image/screen.png)
 
-## View live preview [here]().
+## View live preview [here](https://mdmashoodalam.netlify.app/).
 
 ---
 
