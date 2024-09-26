@@ -1,9 +1,7 @@
-<p align="center" width="100%">
-    <img height="100" src="https://github.com/mdmashoodalam/Portfolio/edit/main/README.md">
-</p>
+
 
 ---
-# [Built Portfolio With GitHub ](https://github.com/said7388/github-portfolio)
+# [Built Portfolio With GitHub ](https://github.com/mdmashoodalam/Portfolio)
 
 ---
 
@@ -17,7 +15,7 @@
 
 ![](./public/image/screen.png)
 
-## View live preview [here](https://abusaid.netlify.app/).
+## View live preview [here]().
 
 ---
 
