@@ -22,11 +22,11 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-[100] w-full bg-transparent">
-      
-      {/* Subtle top glow only */}
+
+      {/* Subtle top glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#16f2b3]/40 to-transparent" />
 
-      {/* Full width */}
+      {/* Full width container */}
       <div className="w-full px-5 sm:px-8 lg:px-10 xl:px-14">
         <div className="flex h-[72px] items-center justify-between">
 
@@ -85,7 +85,7 @@ function Navbar() {
               href="/#contact"
               className="group ml-4 flex items-center gap-2 rounded-full border border-[#16f2b3]/30 bg-transparent px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#16f2b3] transition-all duration-300 hover:border-[#16f2b3] hover:bg-[#16f2b3] hover:text-[#07110f] hover:shadow-[0_0_20px_rgba(22,242,179,0.18)]"
             >
-              Let's Talk
+              Let&apos;s Talk
 
               <FiArrowUpRight
                 size={14}
@@ -102,7 +102,11 @@ function Navbar() {
             aria-expanded={isOpen}
             className="flex h-10 w-10 items-center justify-center rounded-xl bg-transparent text-gray-300 transition-all duration-300 hover:bg-[#16f2b3]/5 hover:text-[#16f2b3] md:hidden"
           >
-            {isOpen ? <FiX size={21} /> : <FiMenu size={21} />}
+            {isOpen ? (
+              <FiX size={21} />
+            ) : (
+              <FiMenu size={21} />
+            )}
           </button>
         </div>
 

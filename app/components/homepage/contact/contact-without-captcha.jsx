@@ -1,139 +1,3 @@
-// "use client";
-// // @flow strict
-// import { isValidEmail } from '@/utils/check-email';
-// import emailjs from '@emailjs/browser';  
-// import axios from 'axios';
-// import { useState } from 'react';
-// import { TbMailForward } from "react-icons/tb";
-// import { toast } from 'react-toastify';
-
-// function ContactWithoutCaptcha() {
-//   const [error, setError] = useState({ email: false, required: false });
-//   const [userInput, setUserInput] = useState({
-//     name: '',
-//     email: '',
-//     message: '',
-//   });
-
-//   const checkRequired = () => {
-//     if (userInput.email && userInput.message && userInput.name) {
-//       setError({ ...error, required: false });
-//     }
-//   };
-
-//   const handleSendMail = async (e) => {
-//     e.preventDefault();
-
-//     if (!userInput.email || !userInput.message || !userInput.name) {
-//       setError({ ...error, required: true });
-//       return;
-//     } else if (error.email) {
-//       return;
-//     } else {
-//       setError({ ...error, required: false });
-//     }
-
-//     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-//     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-//     const options = { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY };
-
-//     try {
-//       const res = await emailjs.send(serviceID, templateID, userInput, options);
-
-//       if (res.status === 200) {
-//         toast.success('Message sent successfully!');
-//         setUserInput({
-//           name: '',
-//           email: '',
-//           message: '',
-//         });
-//       }
-//     } catch (error) {
-//       toast.error(error?.text || "Failed to send message, try again later!");
-//     }
-//   };
-
-//   return (
-//     <div className="">
-//       <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-//         Contact with me
-//       </p>
-//       <div className="max-w-3xl text-white rounded-lg border border-[#464c6a] p-3 lg:p-5">
-//         <p className="text-sm text-[#d3d8e8]">
-//           {"If you have any questions or concerns, please don't hesitate to contact me. I am open to any work opportunities that align with my skills and interests."}
-//         </p>
-//         <div className="mt-6 flex flex-col gap-4">
-//           <div className="flex flex-col gap-2">
-//             <label className="text-base">Your Name: </label>
-//             <input
-//               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
-//               type="text"
-//               maxLength="100"
-//               required={true}
-//               onChange={(e) => setUserInput({ ...userInput, name: e.target.value })}
-//               onBlur={checkRequired}
-//               value={userInput.name}
-//             />
-//           </div>
-
-//           <div className="flex flex-col gap-2">
-//             <label className="text-base">Your Email: </label>
-//             <input
-//               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
-//               type="email"
-//               maxLength="100"
-//               required={true}
-//               value={userInput.email}
-//               onChange={(e) => setUserInput({ ...userInput, email: e.target.value })}
-//               onBlur={() => {
-//                 checkRequired();
-//                 setError({ ...error, email: !isValidEmail(userInput.email) });
-//               }}
-//             />
-//             {error.email &&
-//               <p className="text-sm text-red-400">Please provide a valid email!</p>
-//             }
-//           </div>
-
-//           <div className="flex flex-col gap-2">
-//             <label className="text-base">Your Message: </label>
-//             <textarea
-//               className="bg-[#10172d] w-full border rounded-md border-[#353a52] focus:border-[#16f2b3] ring-0 outline-0 transition-all duration-300 px-3 py-2"
-//               maxLength="500"
-//               name="message"
-//               required={true}
-//               onChange={(e) => setUserInput({ ...userInput, message: e.target.value })}
-//               onBlur={checkRequired}
-//               rows="4"
-//               value={userInput.message}
-//             />
-//           </div>
-
-//           <div className="flex flex-col items-center gap-2">
-//             {error.required &&
-//               <p className="text-sm text-red-400">
-//                 Email and Message are required!
-//               </p>
-//             }
-
-//             <button
-//               className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-5 md:px-12 py-2.5 md:py-3 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold"
-//               role="button"
-//               onClick={handleSendMail}
-//             >
-//               <span>Send Message</span>
-//               <TbMailForward className="mt-1" size={18} />
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default ContactWithoutCaptcha;
-
-
 "use client";
 
 import { isValidEmail } from "@/utils/check-email";
@@ -184,7 +48,8 @@ function ContactWithoutCaptcha() {
     const newErrors = {
       name: !userInput.name.trim(),
       email:
-        !userInput.email.trim() || !isValidEmail(userInput.email.trim()),
+        !userInput.email.trim() ||
+        !isValidEmail(userInput.email.trim()),
       message: !userInput.message.trim(),
     };
 
@@ -239,7 +104,10 @@ function ContactWithoutCaptcha() {
       }
     } catch (error) {
       console.error("EmailJS Error:", error);
-      toast.error("Failed to send message. Please try again.");
+
+      toast.error(
+        "Failed to send message. Please try again."
+      );
     } finally {
       setSending(false);
     }
@@ -249,38 +117,38 @@ function ContactWithoutCaptcha() {
     <div className="w-full">
       {/* Heading */}
       <div className="mb-7">
-        <div className="flex items-center gap-3 mb-3">
+        <div className="mb-3 flex items-center gap-3">
           <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#16f2b3]" />
 
-          <span className="text-xs uppercase tracking-[0.35em] text-[#16f2b3] font-semibold">
-            Let's Connect
+          <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#16f2b3]">
+            Let&apos;s Connect
           </span>
 
           <span className="h-px w-10 bg-gradient-to-r from-[#16f2b3] to-transparent" />
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+        <h2 className="text-3xl font-bold leading-tight text-white md:text-4xl">
           Let&apos;s build something{" "}
           <span className="bg-gradient-to-r from-[#16f2b3] via-cyan-300 to-violet-500 bg-clip-text text-transparent">
             meaningful.
           </span>
         </h2>
 
-        <p className="mt-3 max-w-xl text-sm md:text-base leading-7 text-gray-400">
-          Have an opportunity, project, or idea in mind? Send me a message and
-          I&apos;ll get back to you as soon as possible.
+        <p className="mt-3 max-w-xl text-sm leading-7 text-gray-400 md:text-base">
+          Have an opportunity, project, or idea in mind? Send me a
+          message and I&apos;ll get back to you as soon as possible.
         </p>
       </div>
 
       {/* Form */}
       <form
         onSubmit={handleSendMail}
-        className="relative overflow-hidden rounded-[1.75rem] border border-[#29264a] bg-gradient-to-br from-[#11142a]/95 via-[#0d1123]/95 to-[#15112d]/95 p-5 md:p-7 shadow-2xl shadow-black/20"
+        className="relative overflow-hidden rounded-[1.75rem] border border-[#29264a] bg-gradient-to-br from-[#11142a]/95 via-[#0d1123]/95 to-[#15112d]/95 p-5 shadow-2xl shadow-black/20 md:p-7"
       >
         {/* Decorative glow */}
-        <div className="absolute -right-24 -top-24 h-48 w-48 rounded-full bg-violet-600/10 blur-3xl pointer-events-none" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-violet-600/10 blur-3xl" />
 
-        <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-[#16f2b3]/5 blur-3xl pointer-events-none" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-[#16f2b3]/5 blur-3xl" />
 
         <div className="relative space-y-5">
           {/* Name */}
@@ -289,7 +157,10 @@ function ContactWithoutCaptcha() {
               htmlFor="contact-name"
               className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400"
             >
-              <TbUser size={16} className="text-[#16f2b3]" />
+              <TbUser
+                size={16}
+                className="text-[#16f2b3]"
+              />
               Your Name
             </label>
 
@@ -299,7 +170,9 @@ function ContactWithoutCaptcha() {
               maxLength={100}
               autoComplete="name"
               value={userInput.name}
-              onChange={(e) => handleChange("name", e.target.value)}
+              onChange={(e) =>
+                handleChange("name", e.target.value)
+              }
               placeholder="Enter your name"
               className={`w-full rounded-xl border ${
                 errors.name
@@ -321,7 +194,10 @@ function ContactWithoutCaptcha() {
               htmlFor="contact-email"
               className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400"
             >
-              <TbMail size={16} className="text-[#16f2b3]" />
+              <TbMail
+                size={16}
+                className="text-[#16f2b3]"
+              />
               Email Address
             </label>
 
@@ -331,7 +207,9 @@ function ContactWithoutCaptcha() {
               maxLength={100}
               autoComplete="email"
               value={userInput.email}
-              onChange={(e) => handleChange("email", e.target.value)}
+              onChange={(e) =>
+                handleChange("email", e.target.value)
+              }
               placeholder="you@example.com"
               className={`w-full rounded-xl border ${
                 errors.email
@@ -353,7 +231,10 @@ function ContactWithoutCaptcha() {
               htmlFor="contact-message"
               className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gray-400"
             >
-              <TbMessage size={16} className="text-[#16f2b3]" />
+              <TbMessage
+                size={16}
+                className="text-[#16f2b3]"
+              />
               Your Message
             </label>
 
@@ -362,7 +243,9 @@ function ContactWithoutCaptcha() {
               maxLength={500}
               rows={5}
               value={userInput.message}
-              onChange={(e) => handleChange("message", e.target.value)}
+              onChange={(e) =>
+                handleChange("message", e.target.value)
+              }
               placeholder="Tell me about your project, opportunity, or idea..."
               className={`w-full resize-none rounded-xl border ${
                 errors.message
@@ -398,16 +281,26 @@ function ContactWithoutCaptcha() {
               {sending ? (
                 <>
                   <span className="relative h-4 w-4 animate-spin rounded-full border-2 border-[#071018]/30 border-t-[#071018]" />
-                  <span className="relative">Sending...</span>
+                  <span className="relative">
+                    Sending...
+                  </span>
                 </>
               ) : sent ? (
                 <>
-                  <TbCheck size={20} className="relative" />
-                  <span className="relative">Message Sent</span>
+                  <TbCheck
+                    size={20}
+                    className="relative"
+                  />
+                  <span className="relative">
+                    Message Sent
+                  </span>
                 </>
               ) : (
                 <>
-                  <span className="relative">Send Message</span>
+                  <span className="relative">
+                    Send Message
+                  </span>
+
                   <TbMailForward
                     size={20}
                     className="relative transition-transform duration-300 group-hover:translate-x-1"
