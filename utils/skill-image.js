@@ -225,6 +225,66 @@ export const skillsImage = (skill) => {
       return wolframalpha;
     case 'canva':
       return canva;
+    case 'spring boot':
+      return java;
+    case 'spring mvc':
+      return java;
+    case 'spring security':
+      return java;
+    case 'hibernate':
+      return java;
+    case 'rest apis':
+      return graphql;
+    case 'node.js':
+      return javascript;
+    case 'express':
+      return fastify;
+    case 'nestjs':
+      return typescript;
+    case 'jwt':
+      return javascript;
+    case 'oauth2':
+      return javascript;
+    case 'aes-256-cbc encryption':
+      return docker;
+    case 'jpa':
+      return java;
+    case 'authentication & authorization':
+      return docker;
+    case 'aws ec2':
+      return aws;
+    case 'aws s3':
+      return aws;
+    case 'aws lambda':
+      return aws;
+    case 'aws rds':
+      return aws;
+    case 'react.js':
+      return react;
+    case 'html5':
+      return html;
+    case 'css3':
+      return css;
+    case 'tailwind css':
+      return tailwind;
+    case 'git/github':
+      return git;
+    case 'git':
+      return git;
+    case 'github':
+      return git;
+    case 'postman':
+      return graphql;
+    case 'npm':
+      return javascript;
+    case 'dto validation':
+      return java;
+    case 'axios':
+      return javascript;
+    case 'linux':
+      return docker;
+    case 'maven':
+      return java;
     default:
       break;
   }

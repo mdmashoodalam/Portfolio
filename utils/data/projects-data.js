@@ -1,19 +1,53 @@
-import ayla from '/public/image/ayla.jpg';
-import crefin from '/public/image/crefin.jpg';
-import realEstate from '/public/image/real-estate.jpg';
-import travel from '/public/image/travel.jpg';
+import sf from '/public/image/sf.png';
+import sm from '/public/image/sm.png';
+import ofo from '/public/image/ofo.png';
+import ai from '/public/image/ai.png';
+import ec from '/public/image/ec.png';
+import zc from '/public/image/zc.png';
+import pf from '/public/image/pf.png';
+import mashai from '/public/image/mashai.png';
 
 
 export const projectsData = [
     {
         id: 1,
+        name: 'Secure File Sharing Platform',
+        description: "Built full-stack file management application with Spring Boot REST APIs leveraging 3-layer MVC architecture, JPA/Hibernate ORM, comprehensive exception handling, and rate limiting to prevent brute-force attacks. Implemented enterprise security: JWT + OAuth2 authentication, AES-256-CBC file encryption, BCrypt password hashing, CORS/CSRF protection, and secure token-based sharing with configurable access limits and expiration.",
+        tools: ['Spring Boot', 'React.js', 'MySQL', 'JWT', 'OAuth2', 'AES-256-CBC Encryption', 'Hibernate', 'REST APIs', 'Spring Security', 'JPA'],
+        role: 'Full Stack Developer',
+        code: 'https://github.com/mdmashoodalam/secure-file-sharing#-live-demo',
+        demo: '',
+        image: sf,
+    },
+    {
+        id: 2,
+        name: 'Student Management System',
+        description: "Built end-to-end CRUD application with Spring Boot REST APIs (3-layer architecture, JPA, DTO validation, exception handling) and React frontend featuring search, pagination, and form validation. Developed a responsive UI using React Router and Bootstrap, with Axios-based API integration.",
+        tools: ['Spring Boot', 'React.js', 'Bootstrap', 'MySQL', 'REST APIs', 'JPA', 'React Router', 'Axios', 'DTO Validation'],
+        role: 'Full Stack Developer',
+        code: 'https://github.com/mdmashoodalam/student-management-system  ',
+        demo: 'https://student-management-system-five-gray.vercel.app/',
+        image: sm,
+    },
+    {
+        id: 3,
+        name: 'Online Food Order Application',
+        description: "Engineered a scalable online food ordering application using Spring Boot, RESTful APIs, and MySQL, enabling seamless order management, secure and efficient restaurant–customer interactions.",
+        tools: ['Spring Boot', 'REST APIs', 'MySQL', 'Postman', 'Spring MVC', 'Hibernate', 'Spring Security'],
+        role: 'Backend Developer',
+        code: 'https://github.com/mdmashoodalam/OnlineFoodOrderApp',
+        demo: 'https://github.com/mdmashoodalam/OnlineFoodOrderApp',
+        image: ofo,
+    },
+    {
+        id: 4,
         name: 'E-Commerce Website',
         description: "This project is a fully responsive e-commerce platform where users can browse products, manage carts, and securely complete purchases. Admins can manage products and view orders. The platform includes user authentication, product filtering, and payment gateway integration for seamless transactions. It is designed to offer an intuitive and smooth shopping experience.. This project utilizes a full-stack development approach with modern web technologies such as HTML, CSS, JavaScript, ReactJS, ExpressJS, NodeJS, and MongoDB. The goal is to simulate a seamless and responsive trading experience for users.",
         tools: ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'ExpressJS', 'NodeJS', 'MongoDB', 'JWT (JSON Web Tokens)','Render', 'Payment Gateway Integration ','Git/GitHub'],
         role: ' Full Stack Developer',
-        code: '',
+        code: 'https://github.com/mdmashoodalam/ECommerece-web',
         demo: 'https://ecommerece-web-md-alam.onrender.com/auth/login',
-        image: crefin,
+        image: ec,
     },
     {
         id: 2,
@@ -21,9 +55,9 @@ export const projectsData = [
         description: "I designed and developed a personal portfolio website to showcase my skills, projects, and professional experience. The website features a clean and user-friendly interface, allowing visitors to easily navigate through sections like About Me, Projects, Skills, and Contact. It’s fully responsive, ensuring smooth performance across different devices and screen sizes. The contact form is integrated with EmailJS to allow seamless communication.",
         tools: ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'ExpressJS', 'NodeJS','Git/GitHub', 'Netlify'],
         role: ' Full Stack Developer',
-        code: '',
+        code: 'https://github.com/mdmashoodalam/Portfolio',
         demo: 'https://mdmashoodalam.netlify.app',
-        image: crefin,
+        image: pf,
     },
     {
         id: 3,
@@ -33,56 +67,16 @@ export const projectsData = [
         role: ' Full Stack Developer',
         code: '',
         demo: 'https://github.com/mdmashoodalam/zerodha-Clone',
-        image: crefin,
+        image: zc,
     },
     {
         id: 4,
-        name: 'Patent Registration Website',
-        description: 'Developed a patent registration website enabling users to securely login and register their patents, utilizing React.js for the front end and Firebase for authentication and data storage.',
-        tools: ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'ExpressJS', 'NodeJS', 'Tailwind CSS', 'React Router', 'Material-UI ', 'Firebase Storage', 'Firebase Hosting','Git/GitHub'],
-        role: 'Full Stack Developer',
-        code: '',
-        demo: 'https://patent-hub.web.app/',
-        image: travel,
-    },
-    {
-            id: 5,
-            name: 'To-Do List',
-            description: "Developed a dynamic and visually appealing portfolio website using React.js to showcase projects, skills, and achievements.",
-            tools: ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'ExpressJS', 'NodeJS', 'Tailwind CSS', 'React Router', 'Material-UI ', 'Firebase Storage', 'Firebase Hosting','Git/GitHub'],
-            role: 'Web Developer',
-            code: '',
-            demo: 'https://mail.google.com/mail/u/1/#inbox/FMfcgzQXJGnxrMkHBCKtjbMBRbrXpQrW',
-            image: '',
-        },
-        {
-            id: 6,
-            name: 'Hand-Gesture-mouse ',
-            description: 'Hand-Gesture-mouse utilizes finger node hand recognition technology to simulate mouse functions, enabling intuitive control through natural hand gestures',
-            tools: ['Python', 'OpenCV', 'Mediapipe', 'PyAutoGUI', 'Numpy', 'Pynput ', 'TensorFlow', 'Dlib '],
-            code: '',
-            role: 'Full Stack Developer',
-            demo: 'https://github.com/mdmashoodalam/Hand-Gesture-mouse',
-            image: realEstate,
-        },
-        {
-            id: 7,
-            name: 'Netflix Clone',
-            description: "Netflix Clone built with HTML, CSS, JavaScript, and APIs for authentic content retrieval and streaming experience • Netflix clone project is a web application that replicates the core features of Netflix, allowing users to browse, search,and stream movies and TV shows, typically built using modern web development technologies like React, Node.js, andMongoDB.",
-            tools: ['HTML','CSS', 'Material UI','Axios', 'Git/GitHub' , 'API'],
-            code: '',
-            demo: 'https://my-todo-alam.netlify.app/',
-            image: ayla,
-            role: 'Web Developer',
-        },
-        {
-            id: 8,
-            name: 'Weather-Live-WebApp',
-            description: "The Weather-Live-Webapp is a real-time weather application built using HTML, CSS, JavaScript, and an external API. It fetches and displays live weather updates for any location, providing users with accurate, up-to-date information.",
-            tools: ['HTML', 'CSS', 'JavaScript','API', 'Git/GitHub','Netlify'],
-            role: '',
-            code: '',
-            demo: 'https://weather-app-372b5.web.app/',
-            image: crefin,
-},
+  name: 'AI Interview Mocker – AI-Driven Interview Practice App',
+  description:"A full-stack mock interview platform that uses the Google Gemini API to generate role-specific technical and behavioral questions and provide feedback. Built with a modular React UI, MySQL-backed REST APIs, and client-side authentication (login, signup, protected routes) with secure token and session management.",
+  tools: ['React', 'MySQL', 'Google Gemini API', 'Auth (JWT/session)', 'REST APIs'],
+  role: 'Full Stack Developer',
+  code: 'https://github.com/mdmashoodalam/Ai-Interview-Mocker',
+  demo: 'https://mashsubai.vercel.app',
+  image: mashai,
+}
 ];

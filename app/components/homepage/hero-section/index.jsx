@@ -1,197 +1,434 @@
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
-import { RiContactsFill } from "react-icons/ri";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
+import { FaArrowRight } from "react-icons/fa";
+
+const expertise = [
+  "Java",
+  "Spring Boot",
+  "Spring Security",
+  "React.js",
+  "REST APIs",
+  "MySQL",
+];
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
-      <Image
-        src="/hero.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute -top-[98px] -z-10"
-      />
+    <section
+      id="home"
+      className="relative mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-14"
+    >
+      {/* =====================================================
+          BACKGROUND GLOW
+      ====================================================== */}
 
-      <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is {' '}
-            <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>
-            .
-          </h1>
+      <div className="pointer-events-none absolute left-0 top-20 h-80 w-80 rounded-full bg-[#16f2b3]/10 blur-[140px]" />
 
-          <div className="my-12 flex items-center gap-5">
-            <Link
-              href={personalData.github}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsGithub size={30} />
-            </Link>
-            <Link
-              href={personalData.linkedIn}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <BsLinkedin size={30} />
-            </Link>
-            <Link
-              href={personalData.facebook}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaFacebook size={30} />
-            </Link>
-            <Link
-              href={personalData.leetcode}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <SiLeetcode size={30} />
-            </Link>
-            <Link
-              href={personalData.twitter}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaTwitterSquare size={30} />
-            </Link>
-          </div>
+      <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[150px]" />
 
-          <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span>Contact me</span>
-                <RiContactsFill size={16} />
-              </button>
-            </Link>
+      {/* =====================================================
+          MAIN LUXURY HERO
+      ====================================================== */}
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href={personalData.resume}
+      <div
+        className="
+          group
+          relative
+          overflow-hidden
+          rounded-[2rem]
+          border
+          border-white/[0.08]
+          bg-[#0d131d]
+          shadow-[0_30px_100px_rgba(0,0,0,0.35)]
+        "
+      >
+        {/* Top accent line */}
+        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#16f2b3]/70 to-transparent" />
+
+        {/* Decorative glow */}
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#16f2b3]/5 blur-[100px]" />
+
+        <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-violet-600/5 blur-[100px]" />
+
+        {/* Subtle grid */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            opacity-[0.025]
+          "
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+            backgroundSize: "70px 70px",
+          }}
+        />
+
+        <div className="relative grid items-center gap-12 px-6 py-10 sm:px-10 md:py-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-14 lg:py-16">
+
+          {/* =================================================
+              LEFT — INTRODUCTION
+          ================================================== */}
+
+          <div className="order-2 lg:order-1">
+
+            {/* Status */}
+            <div className="mb-7 flex items-center gap-3">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#16f2b3] opacity-50" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#16f2b3]" />
+              </span>
+
+              <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gray-500 sm:text-xs">
+                Open to Java Full Stack Opportunities
+              </span>
+            </div>
+
+            {/* Greeting */}
+            <p className="mb-4 text-sm font-medium text-gray-500 sm:text-base">
+              Hello, I&apos;m
+            </p>
+
+            {/* Name */}
+            <h1
+              className="
+                max-w-3xl
+                text-4xl
+                font-bold
+                leading-[0.95]
+                tracking-[-0.04em]
+                text-white
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+              "
             >
-              <span>Get Resume</span>
-              <MdDownload size={16} />
-            </Link>
-          </div>
+              {personalData.name}
+            </h1>
 
-        </div>
-        <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
-          <div className="flex flex-row">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-            <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-          </div>
-          <div className="px-4 lg:px-8 py-5">
-            <div className="flex flex-row space-x-2">
-              <div className="h-3 w-3 rounded-full bg-red-400"></div>
-              <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-              <div className="h-3 w-3 rounded-full bg-green-200"></div>
+            {/* Designation */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="h-px w-8 bg-[#16f2b3]" />
+
+              <h2 className="text-lg font-medium text-gray-300 sm:text-xl md:text-2xl">
+                {personalData.designation}
+              </h2>
+            </div>
+
+            {/* Description */}
+            <p className="mt-7 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base sm:leading-8 md:text-lg">
+              I build{" "}
+              <span className="font-medium text-gray-300">
+                secure, scalable REST APIs
+              </span>{" "}
+              with Spring Boot and clean, responsive interfaces with React —
+              turning ideas into production-ready full-stack applications.
+            </p>
+
+            {/* =================================================
+                EXPERTISE
+            ================================================== */}
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {expertise.map((skill) => (
+                <span
+                  key={skill}
+                  className="
+                    rounded-full
+                    border
+                    border-white/[0.08]
+                    bg-white/[0.025]
+                    px-3
+                    py-1.5
+                    text-[10px]
+                    font-medium
+                    text-gray-500
+                    transition-all
+                    duration-300
+                    hover:border-[#16f2b3]/30
+                    hover:bg-[#16f2b3]/5
+                    hover:text-[#16f2b3]
+                  "
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* =================================================
+                BUTTONS
+            ================================================== */}
+
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+
+              <Link
+                href="#contact"
+                className="
+                  group/button
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  bg-[#16f2b3]
+                  px-6
+                  py-3.5
+                  text-xs
+                  font-semibold
+                  uppercase
+                  tracking-wider
+                  text-[#07110f]
+                  transition-all
+                  duration-300
+                  hover:gap-3
+                  hover:bg-[#42f7c8]
+                  hover:shadow-[0_10px_35px_rgba(22,242,179,0.2)]
+                "
+              >
+                <span>Get in touch</span>
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+
+              <Link
+                href={personalData.resume}
+                target="_blank"
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-white/10
+                  bg-white/[0.03]
+                  px-6
+                  py-3.5
+                  text-xs
+                  font-semibold
+                  uppercase
+                  tracking-wider
+                  text-gray-300
+                  transition-all
+                  duration-300
+                  hover:border-white/20
+                  hover:bg-white/[0.07]
+                  hover:text-white
+                "
+              >
+                <span>Get Resume</span>
+                <MdDownload size={16} />
+              </Link>
+            </div>
+
+            {/* =================================================
+                SOCIALS
+            ================================================== */}
+
+            <div className="mt-9 flex items-center gap-4">
+              <span className="mr-1 text-[9px] uppercase tracking-[0.3em] text-gray-700">
+                Connect
+              </span>
+
+              <Link
+                href={personalData.github}
+                target="_blank"
+                className="
+                  text-gray-600
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:text-[#16f2b3]
+                "
+              >
+                <BsGithub size={18} />
+              </Link>
+
+              <Link
+                href={personalData.linkedIn}
+                target="_blank"
+                className="
+                  text-gray-600
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:text-[#16f2b3]
+                "
+              >
+                <BsLinkedin size={18} />
+              </Link>
+
+              <Link
+                href={personalData.leetcode}
+                target="_blank"
+                className="
+                  text-gray-600
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:text-[#16f2b3]
+                "
+              >
+                <SiLeetcode size={18} />
+              </Link>
             </div>
           </div>
-          <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-            <code className="font-mono text-xs md:text-sm lg:text-base">
-              <div className="blink">
-                <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 text-white">coder</span>
-                <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{'{'}</span>
+
+          {/* =================================================
+              RIGHT — PROFESSIONAL PROFILE
+          ================================================== */}
+
+          <div className="order-1 lg:order-2">
+
+            <div className="relative mx-auto max-w-[430px]">
+
+              {/* Outer glow */}
+              <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-[#16f2b3]/10 via-transparent to-violet-600/10 blur-2xl" />
+
+              {/* Profile frame */}
+              <div
+                className="
+                  group/profile
+                  relative
+                  overflow-hidden
+                  rounded-[2rem]
+                  border
+                  border-white/10
+                  bg-[#111722]
+                  p-2
+                  shadow-[0_25px_80px_rgba(0,0,0,0.4)]
+                "
+              >
+
+                {/* Image */}
+                <div
+                  className="
+                    relative
+                    overflow-hidden
+                    rounded-[1.6rem]
+                    bg-[#151b26]
+                  "
+                >
+                  <Image
+                    src="/profile.png"
+                    alt={`${personalData.name} - Java Full Stack Developer`}
+                    width={700}
+                    height={850}
+                    priority
+                    className="
+                      h-[390px]
+                      w-full
+                      object-cover
+                      object-top
+                      grayscale-[15%]
+                      transition-all
+                      duration-700
+                      group-hover/profile:scale-[1.025]
+                      group-hover/profile:grayscale-0
+                      sm:h-[480px]
+                    "
+                  />
+
+                  {/* Image gradient */}
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      bg-gradient-to-t
+                      from-[#0d131d]
+                      via-transparent
+                      to-transparent
+                    "
+                  />
+
+                  {/* Bottom profile label */}
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <div
+                      className="
+                        rounded-2xl
+                        border
+                        border-white/10
+                        bg-[#0d131d]/80
+                        p-4
+                        backdrop-blur-xl
+                      "
+                    >
+                      <div className="flex items-center justify-between gap-4">
+
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.3em] text-[#16f2b3]">
+                            Java Full Stack Developer
+                          </p>
+
+                          <p className="mt-1 text-sm font-medium text-white">
+                            Backend • Security • React
+                          </p>
+                        </div>
+
+                        <div className="hidden h-9 w-9 items-center justify-center rounded-full border border-[#16f2b3]/20 bg-[#16f2b3]/5 sm:flex">
+                          <span className="h-2 w-2 rounded-full bg-[#16f2b3]" />
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-                <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">Md Mashood Alam</span>
-                <span className="text-gray-400">{`',`}</span>
-              </div>
-              <div className="ml-4 lg:ml-8 mr-2">
-                <span className=" text-white">skills:</span>
-                <span className="text-gray-400">{`['`}</span>
-                <span className="text-amber-300">React</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NextJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Node JS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Express</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Tailwind</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MySql</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MongoDB</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Git</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">AWS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Bootstra</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Firebase</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Microsoft Office</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Python</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Java</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Wordpress</span>
-                <span className="text-gray-400">{"'],"}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
-                <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{'() {'}</span>
-              </div>
-              <div>
-                <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
-                <span className="text-gray-400">{`(`}</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">hardWorker</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">problemSolver</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">skills.length</span>
-                <span className="mr-2 text-amber-300">&gt;=</span>
-                <span className="text-orange-400">5</span>
-              </div>
-              <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
-              <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
-              <div><span className="text-gray-400">{`};`}</span></div>
-            </code>
+
+              {/* =================================================
+                  FLOATING STATS
+              ================================================== */}
+
+              <div
+  className="
+    relative
+    mt-4
+    grid
+    grid-cols-2
+    divide-x
+    divide-white/[0.08]
+    rounded-2xl
+    border
+    border-white/[0.08]
+    bg-[#111722]/90
+    px-4
+    py-5
+    backdrop-blur-xl
+  "
+>
+  {/* Full Stack Projects */}
+  <div className="px-4 text-center">
+    <p className="text-xl font-bold text-white sm:text-2xl">
+      3+
+    </p>
+
+    <p className="mt-1 text-[8px] uppercase tracking-[0.2em] text-gray-600 sm:text-[9px]">
+      Full Stack Projects
+    </p>
+  </div>
+
+  {/* Technologies */}
+  <div className="px-4 text-center">
+    <p className="text-xl font-bold text-white sm:text-2xl">
+      15+
+    </p>
+
+    <p className="mt-1 text-[8px] uppercase tracking-[0.2em] text-gray-600 sm:text-[9px]">
+      Technologies
+    </p>
+  </div>
+</div>
+            </div>
           </div>
         </div>
+
+        {/* Bottom accent */}
+        <div className="absolute bottom-0 left-1/2 h-px w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
       </div>
     </section>
   );
-};
+}
 
 export default HeroSection;
